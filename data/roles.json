@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "roleName": "Менеджер по продажам",
+    "preferredZodiacSigns": ["Aries", "Leo", "Sagittarius"],
+    "preferredBirthMonths": [3, 7, 8, 11],
+    "minAge": 23,
+    "maxAge": 35,
+    "weights": { "zodiacWeight": 40, "ageWeight": 40, "monthWeight": 20 }
+  },
+  {
+    "id": 2,
+    "roleName": "Бухгалтер",
+    "preferredZodiacSigns": ["Taurus", "Virgo", "Capricorn"],
+    "preferredBirthMonths": [1, 4, 9, 12],
+    "minAge": 25,
+    "maxAge": 45,
+    "weights": { "zodiacWeight": 45, "ageWeight": 45, "monthWeight": 10 }
+  },
+  {
+    "id": 3,
+    "roleName": "HR-специалист",
+    "preferredZodiacSigns": ["Gemini", "Libra", "Aquarius"],
+    "preferredBirthMonths": [2, 5, 10],
+    "minAge": 23,
+    "maxAge": 40,
+    "weights": { "zodiacWeight": 40, "ageWeight": 40, "monthWeight": 20 }
+  }
+]
