@@ -1,0 +1,47 @@
+import { prisma } from "@/lib/prisma";
+
+const seedRoles = [
+  {
+    roleName: "Менеджер по продажам",
+    preferredZodiacSigns: ["Aries", "Leo", "Sagittarius"],
+    preferredBirthMonths: [3, 7, 8, 11],
+    minAge: 23,
+    maxAge: 35,
+    zodiacWeight: 40,
+    ageWeight: 40,
+    monthWeight: 20,
+  },
+  {
+    roleName: "Бухгалтер",
+    preferredZodiacSigns: ["Taurus", "Virgo", "Capricorn"],
+    preferredBirthMonths: [1, 4, 9, 12],
+    minAge: 25,
+    maxAge: 45,
+    zodiacWeight: 45,
+    ageWeight: 45,
+    monthWeight: 10,
+  },
+  {
+    roleName: "HR-специалист",
+    preferredZodiacSigns: ["Gemini", "Libra", "Aquarius"],
+    preferredBirthMonths: [2, 5, 10],
+    minAge: 23,
+    maxAge: 40,
+    zodiacWeight: 40,
+    ageWeight: 40,
+    monthWeight: 20,
+  },
+];
+
+export async function ensureSeedRoles() {
+  const count = await prisma.roleProfile.count();
+  if (count > 0) return;
+
+  await prisma.roleProfile.createMany({
+    data: seedRoles.map((role) => ({
+      ...role,
+      preferredZodiacSigns: JSON.stringify(role.preferredZodiacSigns),
+      preferredBirthMonths: JSON.stringify(role.preferredBirthMonths),
+    })),
+  });
+}

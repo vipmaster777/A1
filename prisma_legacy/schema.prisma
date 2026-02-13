@@ -1,0 +1,22 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model RoleProfile {
+  id                    Int      @id @default(autoincrement())
+  roleName              String   @unique
+  preferredZodiacSigns  String
+  preferredBirthMonths  String
+  minAge                Int
+  maxAge                Int
+  zodiacWeight          Int
+  ageWeight             Int
+  monthWeight           Int
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+}
